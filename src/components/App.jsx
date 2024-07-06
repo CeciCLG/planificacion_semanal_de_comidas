@@ -9,6 +9,7 @@ import Menu from "./pages/Menu"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Filtered from "./pages/Filtered"
+import MyProfile from "./pages/MyProfile"
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register setUserData={setUserData} />} />
           <Route path="/login" element={<Login setUserData={setUserData} />} />
+          <Route path="/MyProfile" element={<AuthRoute user={userData} component={<MyProfile setUserData={setUserData} userData={userData} />} />} />
           <Route path="/menu" element={<AuthRoute user={userData} component={<Menu />} />} />
           <Route path="/filtered" element={<AuthRoute user={userData} component={<Filtered />} />} />
           <Route path="/detail" element={<Detail />} />

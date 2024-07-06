@@ -14,12 +14,28 @@ async function getDataFromApi(user) {
 }
 
 async function getUserData() {
-    const apiDataUser = await fetch("https://66897e2a0ea28ca88b88240e.mockapi.io/api/food/users", {
-        method: 'GET',
-        headers: { 'content-type': 'application/json' },
-    });
-    const dataUser = apiDataUser.json();
-    return dataUser;
+    try {
+        const apiDataUser = await fetch("https://66897e2a0ea28ca88b88240e.mockapi.io/api/food/users", {
+            method: 'GET',
+            headers: { 'content-type': 'application/json' },
+        });
+        const dataUser = apiDataUser.json();
+        return dataUser;
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
-export { getDataFromApi, getUserData }
+async function getRemoveUser(user) {
+    try {
+        await fetch(`https://66897e2a0ea28ca88b88240e.mockapi.io/api/food/users/${user.id}`, {
+            method: 'DELETE',
+        });
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+export { getDataFromApi, getUserData, getRemoveUser }
