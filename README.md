@@ -14,6 +14,7 @@ Se debe usar las siguientes características de React:
     - Definir Alguna página con una ruta dinámica (detalle)
     - Hacer uso de un contexto para o en su defecto de redux
     - Para la API usa mockApi https://mockapi.io/
+    
 Fecha de entrega miércoles 10 de julio
 
 
