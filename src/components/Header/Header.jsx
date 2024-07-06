@@ -5,7 +5,8 @@ function Header() {
         <header>
             <ul>
                 <li><Link to="/">Menu</Link ></li>
-                <li><Link to="filtered">Filtered</Link></li>
+                <li><Link to="/filtered">Filtered</Link></li>
+                <li><Link to="/login">login</Link></li>
             </ul>
         </header>
     )
