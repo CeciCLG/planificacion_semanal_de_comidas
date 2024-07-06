@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { getUserData } from "../service/ApiUser";
+import { getDataFromApi } from "../service/ApiUser";
 
-
-function Login({ setUserData }) {
+function Register({ setUserData }) {
     const initial_state = {
         username: "",
         email: "",
@@ -17,16 +16,9 @@ function Login({ setUserData }) {
 
     const handleForm = async (ev) => {
         ev.preventDefault();
-        const get = await getUserData();
-        console.log(get);
-        const userFiltered = get.filter((user) => {
-            const name = user.username.toUpperCase();
-            const nameForm = userForm.username.toUpperCase();
-            return name === nameForm && user.email === userForm.email && user.password === userForm.password
-        })
-        const [userCorrect] = userFiltered;
-        localStorage.setItem("user", JSON.stringify(userCorrect));
-        setUserData(userCorrect);
+        const post = await getDataFromApi(userForm);
+        localStorage.setItem("user", JSON.stringify(post));
+        setUserData(post);
     }
 
     return (
@@ -37,9 +29,9 @@ function Login({ setUserData }) {
             <input type="email" name="email" id="email" />
             <label htmlFor="password">Contraseña</label>
             <input type="password" name="password" id="password" />
-            <button>Iniciar sesión</button>
+            <button>Registrarse</button>
         </form>
     )
 }
 
-export default Login
+export default Register
