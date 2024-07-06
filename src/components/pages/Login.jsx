@@ -1,23 +1,24 @@
 import { useState } from "react";
-import getDataToApi from "../service/Api";
+import getDataFromApi from "../service/ApiUser";
 
-function Login() {
+function Login({ setUserData, userData }) {
     const initial_state = {
         username: "",
         email: "",
         password: ""
     };
 
-    const [user, setUser] = useState(initial_state);
+    const [userForm, setUser] = useState(initial_state);
 
     const handleInput = (ev) => {
-        setUser({ ...user, [ev.target.id]: ev.target.value });
+        setUser({ ...userForm, [ev.target.id]: ev.target.value });
     }
 
     const handleForm = async (ev) => {
         ev.preventDefault();
-        const post = await getDataToApi(user);
-        console.log(post);
+        const post = await getDataFromApi(userForm);
+        localStorage.setItem("user", JSON.stringify(post));
+        setUserData(post);
     }
 
     return (
