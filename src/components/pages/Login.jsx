@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { getUserData } from "../service/ApiUser";
+import FailRegister from "../failRegister.jsx/FailRegister";
+import { Link, Navigate } from "react-router-dom";
 
 
 function Login({ setUserData }) {
@@ -11,6 +13,8 @@ function Login({ setUserData }) {
 
     const [userForm, setUser] = useState(initial_state);
 
+    const [registerDisplay, setRegisterDisplay] = useState("notDisplay");
+
     const handleInput = (ev) => {
         setUser({ ...userForm, [ev.target.id]: ev.target.value });
     }
@@ -18,7 +22,6 @@ function Login({ setUserData }) {
     const handleForm = async (ev) => {
         ev.preventDefault();
         const get = await getUserData();
-        console.log(get);
         const userFiltered = get.filter((user) => {
             const name = user.username.toUpperCase();
             const nameForm = userForm.username.toUpperCase();
@@ -29,19 +32,26 @@ function Login({ setUserData }) {
         if (userCorrect) {
             localStorage.setItem("user", JSON.stringify(userCorrect));
             setUserData(userCorrect);
-        } //falta estableces lo que pasa cuando no existe
+            setRegisterDisplay("notDisplay");
+        } else {
+            setRegisterDisplay("display");
+        }
     }
 
     return (
-        <form onChange={handleInput} onSubmit={handleForm}>
-            <label htmlFor="username">Nombre</label>
-            <input type="text" name="username" id="username" />
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" id="email" />
-            <label htmlFor="password">Contraseña</label>
-            <input type="password" name="password" id="password" />
-            <button>Iniciar sesión</button>
-        </form>
+        <article>
+            <FailRegister registerDisplay={registerDisplay} />
+            <form onChange={handleInput} onSubmit={handleForm}>
+                <label htmlFor="username">Nombre</label>
+                <input type="text" name="username" id="username" />
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" id="email" />
+                <label htmlFor="password">Contraseña</label>
+                <input type="password" name="password" id="password" />
+                <button>Iniciar sesión</button>
+                <Link to="/register">Register</Link>
+            </form>
+        </article>
     )
 }
 
