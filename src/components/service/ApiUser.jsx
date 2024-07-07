@@ -29,7 +29,7 @@ async function getUserData() {
 
 async function getRemoveUser(user) {
     try {
-        await fetch(`https://66897e2a0ea28ca88b88240e.mockapi.io/api/food/users/${user.id}`, {
+        return await fetch(`https://66897e2a0ea28ca88b88240e.mockapi.io/api/food/users/${user.id}`, {
             method: 'DELETE',
         });
     } catch (error) {

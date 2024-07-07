@@ -1,19 +1,14 @@
 import { getRemoveUser } from "../service/ApiUser";
 
-function MyProfile({ setUserData, userData }) {
-    function handleRemove(ev) {
-        ev.preventDefault()
-        JSON.parse(localStorage.removeItem("user"));
-        const dataLocal = JSON.parse(localStorage.getItem("user"));
-        setUserData(dataLocal);
+function MyProfile({ userData }) {
+    async function handleRemove() {
+        await JSON.parse(localStorage.removeItem("user"));
     }
 
-    function handleDelete(ev) {
-        ev.preventDefault()
+    async function handleDelete() {
         getRemoveUser(userData);
-        JSON.parse(localStorage.removeItem("user"));
-        const dataLocal = JSON.parse(localStorage.getItem("user"));
-        setUserData(dataLocal);
+        await JSON.parse(localStorage.removeItem("user"));
+
     }
 
     return (

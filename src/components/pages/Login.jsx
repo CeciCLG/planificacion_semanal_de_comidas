@@ -25,8 +25,11 @@ function Login({ setUserData }) {
             return name === nameForm && user.email === userForm.email && user.password === userForm.password
         })
         const [userCorrect] = userFiltered;
-        localStorage.setItem("user", JSON.stringify(userCorrect));
-        setUserData(userCorrect);
+        //comprobar que sí existe
+        if (userCorrect) {
+            localStorage.setItem("user", JSON.stringify(userCorrect));
+            setUserData(userCorrect);
+        } //falta estableces lo que pasa cuando no existe
     }
 
     return (
