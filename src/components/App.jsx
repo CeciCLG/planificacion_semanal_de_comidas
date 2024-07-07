@@ -16,6 +16,7 @@ function App() {
   const dataLocal = JSON.parse(localStorage.getItem("user"));
   const [userData, setUserData] = useState(dataLocal);
 
+
   return (
     <>
       <Header />
@@ -24,8 +25,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register setUserData={setUserData} />} />
           <Route path="/login" element={<Login setUserData={setUserData} />} />
-          <Route path="/MyProfile" element={<AuthRoute user={userData} component={<MyProfile userData={userData} />} />} />
-          <Route path="/menu" element={<AuthRoute user={userData} component={<Menu />} />} />
+          <Route path="/MyProfile" element={<AuthRoute user={userData} component={<MyProfile userData={userData} setUserData={setUserData} />} />} />
+          <Route path="/menu" element={<AuthRoute user={userData} component={<Menu userData={userData} />} />} />
           <Route path="/filtered" element={<AuthRoute user={userData} component={<Filtered />} />} />
           <Route path="/detail" element={<Detail />} />
           <Route path="*" element={<NotFound />} />

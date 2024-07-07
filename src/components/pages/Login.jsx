@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getUserData } from "../service/ApiUser";
 import FailRegister from "../failRegister.jsx/FailRegister";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 function Login({ setUserData }) {
@@ -28,7 +28,7 @@ function Login({ setUserData }) {
             return name === nameForm && user.email === userForm.email && user.password === userForm.password
         })
         const [userCorrect] = userFiltered;
-        //comprobar que sí existe
+
         if (userCorrect) {
             localStorage.setItem("user", JSON.stringify(userCorrect));
             setUserData(userCorrect);
