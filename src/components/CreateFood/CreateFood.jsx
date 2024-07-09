@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { foodContext } from "../ContextFood/ContextFood";
+import { getpostMenuFood } from "../service/ApiFood";
 
-function CreateFood() {
-
+function CreateFood({ userId }) {
+    const context = useContext(foodContext);
+    const userIdNum = Number(userId);
     const initial_state = {
         name: "",
         type: "",
@@ -18,13 +21,20 @@ function CreateFood() {
         ev.preventDefault();
         const id = ev.target.id;
         const value = ev.target.value;
-
-        console.log(`${id} ${value}`);
         setOneFood({ ...oneFood, [id]: value });
+        return oneFood
+    }
+
+    console.log(oneFood);
+
+    const handlePost = async (ev) => {
+        ev.preventDefault();
+        await getpostMenuFood(userIdNum, oneFood);
+        context.setMenuFood([...context.menu, oneFood]);
     }
 
     return (
-        <form onChange={handleCreate}>
+        <form onChange={handleCreate} >
             <label htmlFor="name">¿Qué vas a comer hoy?</label>
             <input type="text" name="name" id="name" placeholder="nombre de la comida" />
 
@@ -40,7 +50,7 @@ function CreateFood() {
             <label htmlFor="day">¿En qué día lo vas a comer?</label>
             <input type="text" name="day" id="day" placeholder="Indica el día en que vas a comerla comida" />
 
-            <button>Crear nueva comida</button>
+            <button onClick={handlePost}>Crear nueva comida</button>
         </form>
     )
 }
