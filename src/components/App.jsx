@@ -11,12 +11,13 @@ import Login from "./pages/Login"
 import Filtered from "./pages/Filtered"
 import MyProfile from "./pages/MyProfile"
 import { foodContext, useFoodContext } from "./ContextFood/ContextFood";
+import CardFood from "./MenuList/CardFood"
 
 
 function App() {
   const dataLocal = JSON.parse(localStorage.getItem("user"));
   const [userData, setUserData] = useState(dataLocal);
-
+  console.log(userData);
   const contextFood = useFoodContext();
 
   return (

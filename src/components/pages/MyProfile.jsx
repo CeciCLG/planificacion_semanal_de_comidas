@@ -1,4 +1,5 @@
 import UseForceUpdate from "../forceUpdate/ForceUpdate";
+import { getDeleteUserMenu } from "../service/ApiFood";
 import { getRemoveUser } from "../service/ApiUser";
 
 
@@ -12,7 +13,7 @@ function MyProfile({ userData, setUserData }) {
         await getRemoveUser(userData);
         await setUserData(null);
         await JSON.parse(localStorage.removeItem("user"));
-
+        await getDeleteUserMenu(userData.id);
         UseForceUpdate();
     }
 
