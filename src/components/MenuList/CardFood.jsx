@@ -1,6 +1,6 @@
 
 
-function CardFood() {
+function CardFood({ foodData }) {
 
     return (
         <>
