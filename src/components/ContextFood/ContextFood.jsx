@@ -5,5 +5,9 @@ export const foodContext = createContext();
 export const useFoodContext = () => {
     const [menu, setMenuFood] = useState([]);
 
-    return { menu, setMenuFood };
+    const filtered = () => {
+
+    }
+
+    return { menu, setMenuFood, filtered };
 }

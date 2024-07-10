@@ -4,6 +4,16 @@ import { foodContext } from "../ContextFood/ContextFood";
 
 
 function MenuList({ userData }) {
+    const initial_state = {
+        lunes: [],
+        martes: [],
+        miercoles: [],
+        jueves: [],
+        viernes: [],
+        sabado: [],
+        domingo: []
+    }
+
     const context = useContext(foodContext);
 
     const [listItems, setListItems] = useState([]);
@@ -16,7 +26,7 @@ function MenuList({ userData }) {
             context.setMenuFood(dataFetch);
             let arrayFoodData = context.menu
             console.log(arrayFoodData);
-            const foodData = arrayFoodData.map((food) => {
+            const foodData = await arrayFoodData.map((food) => {
                 return <li key={food.id}>
                     <h3>{food.name}</h3>
                     <figure>
@@ -34,7 +44,7 @@ function MenuList({ userData }) {
             const foodData = <li>
                 <p>No tienes comidas guardadas</p>
             </li>;
-            return setListItems([...listItems, foodData])
+            return setListItems(...listItems, foodData)
         }
 
     }
