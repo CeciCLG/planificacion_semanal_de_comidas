@@ -25,12 +25,14 @@ function CreateFood({ userId }) {
         return oneFood
     }
 
-    console.log(oneFood);
-
     const handlePost = async (ev) => {
         ev.preventDefault();
         await getpostMenuFood(userIdNum, oneFood);
-        context.setMenuFood([...context.menu, oneFood]);
+        if (context.menu) {
+            context.setMenuFood([...context.menu, oneFood]);
+        } else {
+            context.setMenuFood([oneFood]);
+        }
     }
 
     return (
