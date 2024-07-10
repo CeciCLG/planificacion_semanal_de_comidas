@@ -4,15 +4,15 @@ import { foodContext } from "../ContextFood/ContextFood";
 
 
 function MenuList({ userData }) {
-    const initial_state = {
-        lunes: [],
-        martes: [],
-        miercoles: [],
-        jueves: [],
-        viernes: [],
-        sabado: [],
-        domingo: []
-    }
+    /*  const initial_state = {
+         lunes: [],
+         martes: [],
+         miercoles: [],
+         jueves: [],
+         viernes: [],
+         sabado: [],
+         domingo: []
+     } */
 
     const context = useContext(foodContext);
 
