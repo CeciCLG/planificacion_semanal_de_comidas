@@ -29,9 +29,9 @@ function CreateFood({ userId }) {
         ev.preventDefault();
         await getpostMenuFood(userIdNum, oneFood);
         if (context.menu) {
-            context.setMenuFood([oneFood]);
-        } else {
             context.setMenuFood([...context.menu, oneFood]);
+        } else {
+            context.setMenuFood([oneFood]);
         }
     }
 

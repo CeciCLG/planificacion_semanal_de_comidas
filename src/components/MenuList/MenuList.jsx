@@ -23,8 +23,8 @@ function MenuList({ userData }) {
         const dataFetch = await getMenuFood(userData);
 
         if (dataFetch) {
-            context.setMenuFood(dataFetch);
-            let arrayFoodData = context.menu
+            await context.setMenuFood(dataFetch);
+            const arrayFoodData = context.menu
             console.log(arrayFoodData);
             const foodData = await arrayFoodData.map((food) => {
                 return <li key={food.id}>
@@ -39,7 +39,7 @@ function MenuList({ userData }) {
                 </li>
             });
 
-            return setListItems([...listItems, foodData])
+            return setListItems([foodData])
         } else {
             const foodData = <li>
                 <p>No tienes comidas guardadas</p>
