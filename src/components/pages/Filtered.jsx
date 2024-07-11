@@ -14,10 +14,11 @@ function Filtered() {
         viernes: [],
         sabado: [],
         domingo: []
-    }
+    };
 
-    const [filteredWeek, setFilteredWeek] = useState(initial_state)
+    const [filteredWeek, setFilteredWeek] = useState(initial_state);
 
+    const [foodData, setfoodData] = useState()
 
     const [dayWeek, setDayWeek] = useState("");
 
@@ -51,13 +52,23 @@ function Filtered() {
             setFilteredWeek({ ...filteredWeek, domingos: filteredArray });
 
         }
+
+        /* if (filteredWeek.miercoles) {
+
+        }else {
+            <li>
+            <p></p>
+            </li>
+        } */
     };
 
     return (
-        <form>
-            <SelectWeekDay setSelectFunction={setDayWeek} />
-            <button onClick={handleFilter}>Filtrar</button>
-        </form>
+        <>
+            <form>
+                <SelectWeekDay setSelectFunction={setDayWeek} />
+                <button onClick={handleFilter}>Filtrar</button>
+            </form>
+        </>
     )
 }
 
