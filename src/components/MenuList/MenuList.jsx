@@ -4,15 +4,6 @@ import { foodContext } from "../ContextFood/ContextFood";
 
 
 function MenuList({ userData }) {
-    /*  const initial_state = {
-         lunes: [],
-         martes: [],
-         miercoles: [],
-         jueves: [],
-         viernes: [],
-         sabado: [],
-         domingo: []
-     } */
 
     const context = useContext(foodContext);
 
@@ -25,7 +16,6 @@ function MenuList({ userData }) {
         if (dataFetch) {
             await context.setMenuFood(dataFetch);
             const arrayFoodData = context.menu
-            console.log(arrayFoodData);
             const foodData = await arrayFoodData.map((food) => {
                 return <li key={food.id}>
                     <h3>{food.name}</h3>

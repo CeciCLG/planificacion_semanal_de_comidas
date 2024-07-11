@@ -1,10 +1,21 @@
+import { useContext } from "react";
+import { foodContext } from "../ContextFood/ContextFood";
 
 
 function Filtered() {
+    const context = useContext(foodContext);
+
+    const handleFilter = () => {
+        const dayWeek = "Lunes";
+        const arrayFood = context.menu;
+
+        context.filtered(arrayFood, dayWeek)
+
+    };
+
     return (
         <div>
-
-            <h1>filtered</h1>
+            <button onClick={handleFilter}>Filtrar</button>
         </div>
     )
 }
