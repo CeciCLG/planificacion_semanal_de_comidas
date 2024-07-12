@@ -6,6 +6,17 @@ export const useFoodContext = () => {
 
     const [menu, setMenuFood] = useState([]);
 
+    const initial_state = {
+        lunes: [],
+        martes: [],
+        miercoles: [],
+        jueves: [],
+        viernes: [],
+        sabado: [],
+        domingo: []
+    };
+
+    const [filteredWeek, setFilteredWeek] = useState(initial_state);
 
     const getFilteredWeek = (menu, dayWeek) => {
         console.log(menu);
@@ -17,5 +28,5 @@ export const useFoodContext = () => {
         return filteredArray
     }
 
-    return { menu, setMenuFood, getFilteredWeek };
+    return { menu, setMenuFood, getFilteredWeek, setFilteredWeek, filteredWeek };
 }

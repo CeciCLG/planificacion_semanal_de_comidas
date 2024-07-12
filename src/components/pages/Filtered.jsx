@@ -6,19 +6,7 @@ import SelectWeekDay from "../selectWeekDay/SelectWeekDay";
 function Filtered() {
     const context = useContext(foodContext);
 
-    const initial_state = {
-        lunes: [],
-        martes: [],
-        miercoles: [],
-        jueves: [],
-        viernes: [],
-        sabado: [],
-        domingo: []
-    };
-
-    const [filteredWeek, setFilteredWeek] = useState(initial_state);
-
-    const [foodData, setfoodData] = useState()
+    const [foodData, setfoodData] = useState();
 
     const [dayWeek, setDayWeek] = useState("");
 
@@ -31,35 +19,126 @@ function Filtered() {
         const filteredArray = context.getFilteredWeek(arrayFood, dayWeek);
 
         if (dayWeek === "lunes") {
-            setFilteredWeek({ ...filteredWeek, lunes: filteredArray });
+            context.setFilteredWeek({ ...context.filteredWeek, lunes: filteredArray });
+            const foodData = filteredArray.map((food) => {
+                return <li key={food.id}>
+                    <h3>{food.name}</h3>
+                    <figure>
+                        <img src={food.picture} alt={food.name} />
+                        <figcaption>
+                            <h4>{food.type}</h4>
+                            <p>{food.descripcion}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            })
+
+            return setfoodData([foodData]);
 
         } else if (dayWeek === "martes") {
-            setFilteredWeek({ ...filteredWeek, martes: filteredArray });
+            context.setFilteredWeek({ ...context.filteredWeek, martes: filteredArray });
+
+            const foodData = filteredArray.map((food) => {
+                return <li key={food.id}>
+                    <h3>{food.name}</h3>
+                    <figure>
+                        <img src={food.picture} alt={food.name} />
+                        <figcaption>
+                            <h4>{food.type}</h4>
+                            <p>{food.descripcion}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            })
+
+            return setfoodData([foodData]);
 
         } else if (dayWeek === "miercoles") {
-            setFilteredWeek({ ...filteredWeek, miercoles: filteredArray });
+            context.setFilteredWeek({ ...context.filteredWeek, miercoles: filteredArray });
+            const foodData = filteredArray.map((food) => {
+                return <li key={food.id}>
+                    <h3>{food.name}</h3>
+                    <figure>
+                        <img src={food.picture} alt={food.name} />
+                        <figcaption>
+                            <h4>{food.type}</h4>
+                            <p>{food.descripcion}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            })
+
+            return setfoodData([foodData]);
 
         } else if (dayWeek === "jueves") {
-            setFilteredWeek({ ...filteredWeek, jueves: filteredArray });
+            context.setFilteredWeek({ ...context.filteredWeek, jueves: filteredArray });
+            const foodData = filteredArray.map((food) => {
+                return <li key={food.id}>
+                    <h3>{food.name}</h3>
+                    <figure>
+                        <img src={food.picture} alt={food.name} />
+                        <figcaption>
+                            <h4>{food.type}</h4>
+                            <p>{food.descripcion}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            })
+
+            return setfoodData([foodData]);
 
         } else if (dayWeek === "viernes") {
-            setFilteredWeek({ ...filteredWeek, viernes: filteredArray });
+            context.setFilteredWeek({ ...context.filteredWeek, viernes: filteredArray });
+            const foodData = filteredArray.map((food) => {
+                return <li key={food.id}>
+                    <h3>{food.name}</h3>
+                    <figure>
+                        <img src={food.picture} alt={food.name} />
+                        <figcaption>
+                            <h4>{food.type}</h4>
+                            <p>{food.descripcion}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            })
+
+            return setfoodData([foodData]);
 
         } else if (dayWeek === "sabado") {
-            setFilteredWeek({ ...filteredWeek, sabado: filteredArray });
+            context.setFilteredWeek({ ...context.filteredWeek, sabado: filteredArray });
+            const foodData = filteredArray.map((food) => {
+                return <li key={food.id}>
+                    <h3>{food.name}</h3>
+                    <figure>
+                        <img src={food.picture} alt={food.name} />
+                        <figcaption>
+                            <h4>{food.type}</h4>
+                            <p>{food.descripcion}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            })
+
+            return setfoodData([foodData]);
 
         } else if (dayWeek === "domingos") {
-            setFilteredWeek({ ...filteredWeek, domingos: filteredArray });
+            context.setFilteredWeek({ ...context.filteredWeek, domingos: filteredArray });
 
+            const foodData = filteredArray.map((food) => {
+                return <li key={food.id}>
+                    <h3>{food.name}</h3>
+                    <figure>
+                        <img src={food.picture} alt={food.name} />
+                        <figcaption>
+                            <h4>{food.type}</h4>
+                            <p>{food.descripcion}</p>
+                        </figcaption>
+                    </figure>
+                </li>
+            })
+
+            return setfoodData([foodData]);
         }
-
-        /* if (filteredWeek.miercoles) {
-
-        }else {
-            <li>
-            <p></p>
-            </li>
-        } */
     };
 
     return (
@@ -68,6 +147,7 @@ function Filtered() {
                 <SelectWeekDay setSelectFunction={setDayWeek} />
                 <button onClick={handleFilter}>Filtrar</button>
             </form>
+            <ul className={dayWeek}>{foodData}</ul>
         </>
     )
 }
