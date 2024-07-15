@@ -8,10 +8,8 @@ import Home from "./pages/Home"
 import Menu from "./pages/Menu"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-import Filtered from "./pages/Filtered"
 import MyProfile from "./pages/MyProfile"
 import { foodContext, useFoodContext } from "./ContextFood/ContextFood";
-import CardFood from "./MenuList/CardFood"
 
 
 function App() {
@@ -31,7 +29,6 @@ function App() {
             <Route path="/login" element={<Login setUserData={setUserData} />} />
             <Route path="/MyProfile" element={<AuthRoute user={userData} component={<MyProfile userData={userData} setUserData={setUserData} />} />} />
             <Route path="/menu" element={<AuthRoute user={userData} component={<Menu userData={userData} />} />} />
-            <Route path="/filtered" element={<AuthRoute user={userData} component={<Filtered />} />} />
             <Route path="/detail" element={<Detail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

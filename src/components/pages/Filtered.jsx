@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { foodContext } from "../ContextFood/ContextFood";
 import SelectWeekDay from "../selectWeekDay/SelectWeekDay";
 
-
 function Filtered() {
     const context = useContext(foodContext);
 
@@ -121,8 +120,8 @@ function Filtered() {
 
             return setfoodData([foodData]);
 
-        } else if (dayWeek === "domingos") {
-            context.setFilteredWeek({ ...context.filteredWeek, domingos: filteredArray });
+        } else if (dayWeek === "domingo") {
+            context.setFilteredWeek({ ...context.filteredWeek, domingo: filteredArray });
 
             const foodData = filteredArray.map((food) => {
                 return <li key={food.id}>

@@ -25,24 +25,4 @@ async function getpostMenuFood(user, newFood) {
     }
 }
 
-async function getDeleteMenuFood(user, newFood) {
-    try {
-        await fetch(`https://66897e2a0ea28ca88b88240e.mockapi.io/api/food/users/${user}/menu/${newFood}`, {
-            method: 'DELETE',
-        });
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function getDeleteUserMenu(user) {
-    try {
-        await fetch(`https://66897e2a0ea28ca88b88240e.mockapi.io/api/food/users/${user}/menu/`, {
-            method: 'DELETE',
-        });
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-export { getpostMenuFood, getDeleteMenuFood, getMenuFood, getDeleteUserMenu }
+export { getpostMenuFood, getMenuFood }

@@ -19,12 +19,9 @@ export const useFoodContext = () => {
     const [filteredWeek, setFilteredWeek] = useState(initial_state);
 
     const getFilteredWeek = (menu, dayWeek) => {
-        console.log(menu);
-        console.log(dayWeek);
         const filteredArray = menu.filter((food) => {
             return food.day === dayWeek
         });
-
         return filteredArray
     }
 

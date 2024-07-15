@@ -1,25 +1,25 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom"
 import CreateFood from "../CreateFood/CreateFood";
 import MenuList from "../MenuList/MenuList";
+import Filtered from "./Filtered";
 
 
 
 function Menu({ userData }) {
     const userId = userData.id;
     return (
-        <section>
+        <>
             <h2>Menu de la semana</h2>
-            <nav>
-                <Link to="/filtered">Filtrar comida</Link>
-            </nav>
-            <article>
+            <section>
+                <Filtered />
+            </section>
+            <section>
                 <CreateFood userId={userId} />
-            </article>
-            <article>
+            </section>
+            <section>
                 <MenuList userData={userId} />
-            </article>
-        </section>
+            </section>
+        </>
     )
 }
 export default Menu

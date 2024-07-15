@@ -15,8 +15,6 @@ function CreateFood({ userId }) {
 
     const [oneFood, setOneFood] = useState(initial_state);
 
-
-
     const handleCreate = (ev) => {
         ev.preventDefault();
         const id = ev.target.id;
