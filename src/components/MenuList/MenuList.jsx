@@ -23,138 +23,26 @@ function MenuList({ userData }) {
     async function handleClick(ev) {
         ev.preventDefault();
         const dataFetch = await getMenuFood(userData);
-
         if (dataFetch) {
             await context.setMenuFood(dataFetch);
-            console.log(context.menu)
 
-            dayWeek.map((day) => {
+            dayWeek.forEach((day) => {
                 const filteredArray = context.getFilteredWeek(context.menu, day);
-                console.log(filteredArray);
-                if (day === "lunes") {
-
-                    context.setFilteredWeek({ ...context.filteredWeek, lunes: filteredArray });
-                    const foodDataMonday = context.filteredWeek.lunes.map((food) => {
-                        return <li key={food.id}>
-                            <h3>{food.name}</h3>
-                            <figure>
-                                <img src={food.picture} alt={food.name} />
-                                <figcaption>
-                                    <h4>{food.type}</h4>
-                                    <p>{food.descripcion}</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    });
-
-                    return setListItems({ ...listItems, lunes: foodDataMonday });
-                } else if (day === "martes") {
-                    const filteredArray = context.getFilteredWeek(context.menu, day);
-                    context.setFilteredWeek({ ...context.filteredWeek, martes: filteredArray })
-                    console.log(context.filteredWeek.martes);
-                    const foodDataTuesday = context.filteredWeek.martes.map((food) => {
-                        return <li key={food.id}>
-                            <h3>{food.name}</h3>
-                            <figure>
-                                <img src={food.picture} alt={food.name} />
-                                <figcaption>
-                                    <h4>{food.type}</h4>
-                                    <p>{food.descripcion}</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    });
-
-                    return setListItems({ ...listItems, martes: foodDataTuesday });
-                } else if (day === "miercoles") {
-                    const filteredArray = context.getFilteredWeek(context.menu, day);
-                    context.setFilteredWeek({ ...context.filteredWeek, miercoles: filteredArray })
-                    const arrayFiltered = context.filteredWeek.miercoles
-                    const foodDataWednesday = arrayFiltered.map((food) => {
-                        return <li key={food.id}>
-                            <h3>{food.name}</h3>
-                            <figure>
-                                <img src={food.picture} alt={food.name} />
-                                <figcaption>
-                                    <h4>{food.type}</h4>
-                                    <p>{food.descripcion}</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    });
-
-                    return setListItems({ ...listItems, miercoles: foodDataWednesday });
-                } else if (day === "jueves") {
-                    const filteredArray = context.getFilteredWeek(context.menu, day);
-                    context.setFilteredWeek({ ...context.filteredWeek, jueves: filteredArray })
-                    const foodDataThursday = context.filteredWeek.jueves.map((food) => {
-                        return <li key={food.id}>
-                            <h3>{food.name}</h3>
-                            <figure>
-                                <img src={food.picture} alt={food.name} />
-                                <figcaption>
-                                    <h4>{food.type}</h4>
-                                    <p>{food.descripcion}</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    });
-
-                    return setListItems({ ...listItems, jueves: foodDataThursday });
-                } else if (day === "viernes") {
-                    const filteredArray = context.getFilteredWeek(context.menu, day);
-                    context.setFilteredWeek({ ...context.filteredWeek, viernes: filteredArray })
-                    const foodDataFriday = context.filteredWeek.viernes.map((food) => {
-                        return <li key={food.id}>
-                            <h3>{food.name}</h3>
-                            <figure>
-                                <img src={food.picture} alt={food.name} />
-                                <figcaption>
-                                    <h4>{food.type}</h4>
-                                    <p>{food.descripcion}</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    });
-
-                    return setListItems({ ...listItems, viernes: foodDataFriday });
-                } else if (day === "sabado") {
-                    const filteredArray = context.getFilteredWeek(context.menu, day);
-                    context.setFilteredWeek({ ...context.filteredWeek, sabado: filteredArray })
-                    const foodDataSaturday = context.filteredWeek.sabado.map((food) => {
-                        return <li key={food.id}>
-                            <h3>{food.name}</h3>
-                            <figure>
-                                <img src={food.picture} alt={food.name} />
-                                <figcaption>
-                                    <h4>{food.type}</h4>
-                                    <p>{food.descripcion}</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    });
-
-                    return setListItems({ ...listItems, sabado: foodDataSaturday });
-                } else if (day === "domingo") {
-                    const filteredArray = context.getFilteredWeek(context.menu, day);
-                    context.setFilteredWeek({ ...context.filteredWeek, domingo: filteredArray })
-                    const foodDataSunday = context.filteredWeek.domingo.map((food) => {
-                        return <li key={food.id}>
-                            <h3>{food.name}</h3>
-                            <figure>
-                                <img src={food.picture} alt={food.name} />
-                                <figcaption>
-                                    <h4>{food.type}</h4>
-                                    <p>{food.descripcion}</p>
-                                </figcaption>
-                            </figure>
-                        </li>
-                    });
-
-                    return setListItems({ ...listItems, domingo: foodDataSunday });
-                }
+                context.setFilteredWeek(prevState => ({ ...prevState, [day]: filteredArray }));
+                const foodData = filteredArray.map((food) => (
+                    <li key={food.id}>
+                        <h3>{food.name}</h3>
+                        <figure>
+                            <img src={food.picture} alt={food.name} />
+                            <figcaption>
+                                <h4>{food.type}</h4>
+                                <p>{food.descripcion}</p>
+                            </figcaption>
+                        </figure>
+                    </li>
+                ));
+                setListItems(prevState => ({ ...prevState, [day]: foodData }));
             });
-
         }
     }
 
