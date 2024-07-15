@@ -38,7 +38,7 @@ function CreateFood({ userId }) {
             <label htmlFor="name">¿Qué vas a comer hoy?</label>
             <input type="text" name="name" id="name" placeholder="nombre de la comida" />
 
-            <label htmlFor="">Dale una descripción a la comida</label>
+            <label htmlFor="descripcion">Dale una descripción a la comida</label>
             <input type="text" name="description" id="descripcion" placeholder="Descripción" />
 
             <label htmlFor="type">¿Qué tipo de comida vas a comer?</label>
