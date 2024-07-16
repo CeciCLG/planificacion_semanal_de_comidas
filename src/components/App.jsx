@@ -10,6 +10,7 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import MyProfile from "./pages/MyProfile"
 import { foodContext, useFoodContext } from "./ContextFood/ContextFood";
+import Filtered from "./pages/Filtered"
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path="/MyProfile" element={<AuthRoute user={userData} component={<MyProfile userData={userData} setUserData={setUserData} />} />} />
             <Route path="/menu" element={<AuthRoute user={userData} component={<Menu userData={userData} />} />} />
             <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/filter" element={<Filtered />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </foodContext.Provider>

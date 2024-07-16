@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import CreateFood from "../CreateFood/CreateFood";
 import MenuList from "../MenuList/MenuList";
-import Filtered from "./Filtered";
 
 
 
@@ -9,10 +8,7 @@ function Menu({ userData }) {
     const userId = userData.id;
     return (
         <>
-            <h2>Menu de la semana</h2>
-            <section>
-                <Filtered />
-            </section>
+            <h1>Menu de la semana</h1>
             <section>
                 <CreateFood userId={userId} />
             </section>
