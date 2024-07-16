@@ -16,6 +16,12 @@ export const useFoodContext = () => {
         domingo: []
     };
 
+    const initial_state_type = {
+        desayuno: [],
+        almuerzo: [],
+        cena: [],
+    };
+
     const [filteredWeek, setFilteredWeek] = useState(initial_state);
 
     const getFilteredWeek = (menu, dayWeek) => {
@@ -25,5 +31,16 @@ export const useFoodContext = () => {
         return filteredArray
     }
 
-    return { menu, setMenuFood, getFilteredWeek, setFilteredWeek, filteredWeek };
+    const [filteredType, setFilteredType] = useState(initial_state_type);
+
+    const getFilteredType = (menu, foodType) => {
+        console.log(foodType);
+        console.log(menu);
+        const filteredTypeArray = menu.filter((food) => {
+            return food.type === foodType
+        });
+        return filteredTypeArray
+    }
+
+    return { menu, setMenuFood, getFilteredWeek, setFilteredWeek, filteredWeek, filteredType, setFilteredType, getFilteredType };
 }

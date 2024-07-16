@@ -11,6 +11,7 @@ function SelectWeekDay({ setSelectFunction }) {
     return (
         <form action="" onChange={handleCollect}>
             <select name="dayWeek" id="dayWeek" >
+                <option value="">Selecciona día</option>
                 <option value="lunes">Lunes</option>
                 <option value="martes">Martes</option>
                 <option value="miercoles">Miercoles</option>

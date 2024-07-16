@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { foodContext } from "../ContextFood/ContextFood";
-import SelectWeekDay from "../selectWeekDay/SelectWeekDay";
+import SelectWeekDay from "../selectFiltered/SelectWeekDay";
 
 function FilteredDays() {
     const context = useContext(foodContext);
@@ -35,13 +35,13 @@ function FilteredDays() {
     };
 
     return (
-        <>
+        <article>
             <form>
                 <SelectWeekDay setSelectFunction={setDayWeek} />
                 <button onClick={handleFilter}>Filtrar</button>
             </form>
             <ul className={dayWeek}>{foodData}</ul>
-        </>
+        </article>
     )
 }
 export default FilteredDays
