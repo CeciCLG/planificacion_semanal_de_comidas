@@ -25,10 +25,9 @@ function App() {
       <main>
         <foodContext.Provider value={contextFood}>
           <Routes>
-            <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register setUserData={setUserData} />} />
             <Route path="/login" element={<Login setUserData={setUserData} />} />
-            <Route path="/MyProfile" element={<AuthRoute user={userData} component={<MyProfile userData={userData} setUserData={setUserData} />} />} />
+            <Route path="/" element={<AuthRoute user={userData} component={<MyProfile userData={userData} setUserData={setUserData} />} />} />
             <Route path="/menu" element={<AuthRoute user={userData} component={<Menu userData={userData} />} />} />
             <Route path="/detail/:id" element={<Detail />} />
             <Route path="/filter" element={<Filtered />} />
