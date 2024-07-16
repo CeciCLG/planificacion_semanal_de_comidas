@@ -30,7 +30,7 @@ function App() {
             <Route path="/" element={<AuthRoute user={userData} component={<MyProfile userData={userData} setUserData={setUserData} />} />} />
             <Route path="/menu" element={<AuthRoute user={userData} component={<Menu userData={userData} />} />} />
             <Route path="/detail/:id" element={<Detail />} />
-            <Route path="/filter" element={<Filtered />} />
+            <Route path="/filter" element={<AuthRoute user={userData} component={<Filtered />} />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </foodContext.Provider>
