@@ -29,7 +29,7 @@ function App() {
             <Route path="/login" element={<Login setUserData={setUserData} />} />
             <Route path="/MyProfile" element={<AuthRoute user={userData} component={<MyProfile userData={userData} setUserData={setUserData} />} />} />
             <Route path="/menu" element={<AuthRoute user={userData} component={<Menu userData={userData} />} />} />
-            <Route path="/detail" element={<Detail />} />
+            <Route path="/detail/:id" element={<Detail />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </foodContext.Provider>

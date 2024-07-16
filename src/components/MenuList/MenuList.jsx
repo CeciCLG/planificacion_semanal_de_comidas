@@ -1,6 +1,7 @@
 import { getMenuFood } from "../service/ApiFood";
 import { useContext, useState } from "react";
 import { foodContext } from "../ContextFood/ContextFood";
+import { Link } from "react-router-dom";
 
 
 function MenuList({ userData }) {
@@ -30,16 +31,18 @@ function MenuList({ userData }) {
                 const filteredArray = context.getFilteredWeek(context.menu, day);
                 context.setFilteredWeek(prevState => ({ ...prevState, [day]: filteredArray }));
                 const foodData = filteredArray.map((food) => (
-                    <li key={food.id}>
-                        <h3>{food.name}</h3>
-                        <figure>
-                            <img src={food.picture} alt={food.name} />
-                            <figcaption>
-                                <h4>{food.type}</h4>
-                                <p>{food.descripcion}</p>
-                            </figcaption>
-                        </figure>
-                    </li>
+                    <li key={food.id} >
+                        <Link to={`/detail/${food.id}`}>
+                            <h3>{food.name}</h3>
+                            <figure>
+                                <img src={food.picture} alt={food.name} />
+                                <figcaption>
+                                    <h4>{food.type}</h4>
+                                    <p>{food.descripcion}</p>
+                                </figcaption>
+                            </figure>
+                        </Link>
+                    </li >
                 ));
                 setListItems(prevState => ({ ...prevState, [day]: foodData }));
             });
