@@ -39,19 +39,36 @@ function Login({ setUserData }) {
     }
 
     return (
-        <article>
-            <FailRegister registerDisplay={registerDisplay} />
-            <form onChange={handleInput} onSubmit={handleForm}>
-                <label htmlFor="username">Nombre</label>
-                <input type="text" name="username" id="username" />
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" />
-                <label htmlFor="password">Contraseña</label>
-                <input type="password" name="password" id="password" />
-                <button>Iniciar sesión</button>
-                <Link to="/register">Register</Link>
-            </form>
-        </article>
+        <div>
+
+            <section className="login">
+                <FailRegister registerDisplay={registerDisplay} />
+                <form onChange={handleInput} onSubmit={handleForm}>
+                    <div className="box">
+                        <div className="label">
+                            <label htmlFor="username">Nombre</label>
+                        </div>
+                        <input type="text" name="username" id="username" />
+                    </div>
+                    <div className="box">
+                        <div className="label">
+                            <label htmlFor="email">Email</label>
+                        </div>
+                        <input type="email" name="email" id="email" />
+                    </div>
+                    <div className="box">
+                        <div className="label">
+                            <label htmlFor="password">Contraseña</label>
+                        </div>
+                        <input type="password" name="password" id="password" />
+                    </div>
+                    <div className="box">
+                        <button>Iniciar sesión</button>
+                        <Link to="/register">Register</Link>
+                    </div>
+                </form>
+            </section>
+        </div>
     )
 }
 

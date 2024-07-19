@@ -1,0 +1,26 @@
+.createForm {
+    .createBox {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        div {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .createBoxForm {
+        display: flex;
+        /* width: calc(20% - 10px); */
+        flex-direction: column;
+        align-items: center;
+
+        input {
+            width: 50%;
+        }
+    }
+
+
+}

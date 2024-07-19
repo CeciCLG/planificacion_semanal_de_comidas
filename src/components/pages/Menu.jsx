@@ -9,10 +9,10 @@ function Menu({ userData }) {
     return (
         <>
             <h1>Menu de la semana</h1>
-            <section>
+            <section className="createForm">
                 <CreateFood userId={userId} />
             </section>
-            <section>
+            <section className="menuList">
                 <MenuList userData={userId} />
             </section>
         </>

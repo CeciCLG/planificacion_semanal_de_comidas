@@ -1,0 +1,17 @@
+.detail {
+    flex-direction: column;
+
+    @media screen and (min-width: 520px) {
+        h1 {
+            font-size: 120%;
+        }
+
+        font-size: 120%;
+
+        figure {
+            display: flex;
+            align-items: center;
+        }
+
+    }
+}

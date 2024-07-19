@@ -1,0 +1,186 @@
+header ul {
+  display: flex;
+  width: 100%;
+  margin: 25px 10%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-items: center;
+}
+header ul li {
+  width: 33.3333%;
+  align-items: center;
+}
+header ul li a {
+  text-decoration: none;
+  color: rgb(45, 26, 6);
+}
+header ul li a:hover {
+  color: blueviolet;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  color: rgb(45, 26, 6);
+}
+main button {
+  background-color: rgb(254, 255, 218);
+  border: none;
+  width: 100px;
+}
+main button:hover {
+  background-color: rgb(222, 255, 160);
+}
+main img {
+  margin: 10px;
+  height: 250px;
+}
+main h1 {
+  width: 100%;
+  padding: 10px;
+  font-size: large;
+}
+main h2 {
+  padding: 10px;
+}
+main section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+main section form {
+  flex-direction: column;
+  flex-basis: 0px;
+  width: 100%;
+}
+main div {
+  width: 100%;
+  padding: 5px;
+}
+main div a {
+  text-decoration: none;
+  color: rgb(45, 26, 6);
+}
+main div a:hover {
+  color: blueviolet;
+}
+main .box {
+  margin: 20px;
+  flex-direction: column;
+}
+main button {
+  margin: 10px;
+}
+
+.notDisplay {
+  display: none;
+}
+
+.display {
+  display: contents;
+}
+
+.createForm .createBox {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.createForm .createBox div {
+  display: flex;
+  justify-content: center;
+}
+.createForm .createBoxForm {
+  display: flex;
+  /* width: calc(20% - 10px); */
+  flex-direction: column;
+  align-items: center;
+}
+.createForm .createBoxForm input {
+  width: 50%;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.menuList .menulistbutton {
+  width: 100%;
+}
+.menuList h2 {
+  font-size: medium;
+}
+.menuList .articleList {
+  width: 40%;
+}
+.menuList ul {
+  width: 100%;
+}
+.menuList figure {
+  display: flex;
+  align-items: center;
+}
+.menuList figure h4 {
+  margin: 5px;
+}
+.menuList figure img {
+  margin: 10px;
+  height: 200px;
+}
+
+@media screen and (max-width: 520px) {
+  .menuList {
+    flex-direction: column;
+  }
+  .menuList .articleList {
+    width: 90%;
+  }
+}
+.filtereds {
+  display: flex;
+  justify-content: space-around;
+}
+.filtereds figure {
+  display: flex;
+  align-items: center;
+}
+.filtereds figure h4 {
+  margin: 5px;
+}
+.filtereds figure img {
+  margin: 10px;
+  height: 200px;
+}
+
+.logOut {
+  display: flex;
+  justify-content: center;
+}
+
+.detail {
+  flex-direction: column;
+}
+@media screen and (min-width: 520px) {
+  .detail {
+    font-size: 120%;
+  }
+  .detail h1 {
+    font-size: 120%;
+  }
+  .detail figure {
+    display: flex;
+    align-items: center;
+  }
+}
+
+html body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(249, 224, 224);
+}/*# sourceMappingURL=style.css.map */
