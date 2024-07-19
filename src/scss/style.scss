@@ -1,0 +1,17 @@
+@import "./variable";
+@import "./mixin";
+@import "./header";
+@import "./login";
+@import "../components/failRegister.jsx/failRegister";
+@import "./menuCreate";
+@import "./menuList";
+@import "./filtered";
+@import "./profile";
+@import "./detail";
+
+html body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $color1,
+}

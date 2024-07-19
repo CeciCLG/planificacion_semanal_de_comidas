@@ -5,9 +5,13 @@ function Filtered() {
 
     return (
         <section>
-            <h1>Filtros</h1>
-            <FilteredDays />
-            <FilteredType />
+            <div>
+                <h1>Filtros</h1>
+                <div className="filtereds">
+                    <FilteredDays />
+                    <FilteredType />
+                </div>
+            </div>
         </section>
     )
 }

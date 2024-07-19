@@ -1,0 +1,48 @@
+.menuList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .menulistbutton {
+        width: 100%;
+
+    }
+
+    h2 {
+        font-size: medium;
+    }
+
+    .articleList {
+        width: 40%;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    figure {
+
+        display: flex;
+        align-items: center;
+
+        h4 {
+            margin: 5px;
+        }
+
+        img {
+            margin: 10px;
+            height: 200px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+    .menuList {
+        flex-direction: column;
+
+        .articleList {
+            width: 90%;
+        }
+    }
+}

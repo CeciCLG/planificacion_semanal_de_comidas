@@ -13,11 +13,13 @@ function MyProfile({ userData, setUserData }) {
     } */
 
     return (
-        <form>
-            <button onClick={handleRemove}>Cerrar sesión</button>
+        <div className="logOut">
+            <form>
+                <button onClick={handleRemove}>Cerrar sesión</button>
 
-            {/* <button onClick={handleDelete}>Eliminar cuenta</button> */}
-        </form>
+                {/* <button onClick={handleDelete}>Eliminar cuenta</button> */}
+            </form>
+        </div>
     )
 }
 

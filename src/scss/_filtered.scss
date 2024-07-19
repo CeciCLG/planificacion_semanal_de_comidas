@@ -1,0 +1,20 @@
+.filtereds {
+    display: flex;
+    justify-content: space-around;
+
+
+    figure {
+
+        display: flex;
+        align-items: center;
+
+        h4 {
+            margin: 5px;
+        }
+
+        img {
+            margin: 10px;
+            height: 200px;
+        }
+    }
+}

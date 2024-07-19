@@ -1,4 +1,4 @@
-import "./failRegister.scss"
+
 
 function FailRegister({ registerDisplay }) {
     return (
