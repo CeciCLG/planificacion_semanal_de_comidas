@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { getDataFromApi } from "../service/ApiUser";
-import { Link } from "react-router-dom";
 
 function Register({ setUserData }) {
     const initial_state = {
@@ -11,6 +11,8 @@ function Register({ setUserData }) {
 
     const [userForm, setUser] = useState(initial_state);
 
+    const navigate = useNavigate()
+
     const handleInput = (ev) => {
         setUser({ ...userForm, [ev.target.id]: ev.target.value });
     }
@@ -20,6 +22,7 @@ function Register({ setUserData }) {
         const post = await getDataFromApi(userForm);
         localStorage.setItem("user", JSON.stringify(post));
         setUserData(post);
+        navigate('/menu');
     }
 
     return (
@@ -44,7 +47,7 @@ function Register({ setUserData }) {
                     <input type="password" name="password" id="password" />
                 </div>
                 <div className="box">
-                    <button>Registrarse</button>
+                    <button type="submit">Registrarse</button>
                     <Link to="/login">Iniciar sesión</Link>
                 </div>
             </form>

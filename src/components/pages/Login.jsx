@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getUserData } from "../service/ApiUser";
 import FailRegister from "../failRegister.jsx/FailRegister";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 function Login({ setUserData }) {
@@ -14,6 +14,8 @@ function Login({ setUserData }) {
     const [userForm, setUser] = useState(initial_state);
 
     const [registerDisplay, setRegisterDisplay] = useState("notDisplay");
+
+    const navigate = useNavigate()
 
     const handleInput = (ev) => {
         setUser({ ...userForm, [ev.target.id]: ev.target.value });
@@ -33,9 +35,11 @@ function Login({ setUserData }) {
             localStorage.setItem("user", JSON.stringify(userCorrect));
             setUserData(userCorrect);
             setRegisterDisplay("notDisplay");
+            navigate('/menu');
         } else {
             setRegisterDisplay("display");
         }
+        ev.target.reset
     }
 
     return (
@@ -63,7 +67,7 @@ function Login({ setUserData }) {
                         <input type="password" name="password" id="password" />
                     </div>
                     <div className="box">
-                        <button>Iniciar sesión</button>
+                        <button type="submit">Iniciar sesión</button>
                         <Link to="/register">Register</Link>
                     </div>
                 </form>
