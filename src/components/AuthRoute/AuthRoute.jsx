@@ -5,7 +5,7 @@ function AuthRoute({ user, component }) {
     if (user) {
         return component;
     } else {
-        return <Navigate to="/login" />
+        return <Navigate to="/" />
     }
 
 }
